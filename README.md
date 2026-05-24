@@ -45,6 +45,7 @@ A production-ready Playwright automation framework built with TypeScript. Covers
 | Logging | [Winston](https://github.com/winstonjs/winston) | Structured, rotating log files |
 | Test data | [@faker-js/faker](https://fakerjs.dev) v9.9 | Dynamic payload generation for API tests |
 | Browser | Chromium (Desktop Chrome) | Default project; easily extended |
+| Code graph | [graphify](https://github.com/nicholasgasior/graphify) | AST knowledge graph for codebase navigation |
 
 ---
 
@@ -344,6 +345,38 @@ All artifact folders are git-ignored. Run `npm run report` to open the HTML repo
 |---|---|---|
 | UI | OrangeHRM Open Source Demo | https://opensource-demo.orangehrmlive.com |
 | API | Fake Store API | https://fakestoreapi.com |
+
+---
+
+## Knowledge Graph (graphify)
+
+This project uses [graphify](https://github.com/nicholasgasior/graphify) to generate an AST-based knowledge graph of the codebase. The graph lives in `graphify-out/` and gives Claude (and you) a fast, structured way to understand file relationships, module dependencies, and cross-cutting concepts — without grepping through every file manually.
+
+### What it produces
+
+| Output | Description |
+|---|---|
+| `graphify-out/graph.json` | Full AST graph — nodes are files/symbols, edges are imports and references |
+| `graphify-out/GRAPH_REPORT.md` | Human-readable architecture summary with community clusters and god nodes |
+| `graphify-out/wiki/index.md` | Auto-generated wiki for broad codebase navigation |
+
+### Commands
+
+```bash
+# Build or rebuild the graph (no API cost — AST only)
+npx graphify update .
+
+# Query the graph by question
+npx graphify query "where is the API client defined?"
+
+# Find the relationship between two files or symbols
+npx graphify path "ApiClient" "ProductEndpoints"
+
+# Explain a specific concept in the codebase
+npx graphify explain "fixture injection"
+```
+
+> Run `npx graphify update .` after any code change to keep the graph current.
 
 ---
 
