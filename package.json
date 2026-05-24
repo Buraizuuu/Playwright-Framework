@@ -1,0 +1,33 @@
+{
+  "name": "playwright-framework",
+  "version": "1.0.0",
+  "description": "Playwright TypeScript framework with POM, dotenv, and Winston logging",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test tests/smoke/",
+    "test:regression": "playwright test tests/regression/",
+    "test:headed": "playwright test --headed",
+    "test:api": "playwright test tests/api/",
+    "test:api:smoke": "playwright test tests/api/smoke/",
+    "test:api:regression": "playwright test tests/api/regression/",
+    "typecheck": "tsc --noEmit",
+    "report": "playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1",
+    "graphify": "^1.0.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "dotenv": "^16.6.1",
+    "winston": "^3.19.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  }
+}

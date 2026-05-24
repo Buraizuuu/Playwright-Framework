@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment files — never commit secrets
+.env
+.env.*
+!.env.example
+
+# Playwright artifacts
+test-results/
+playwright-report/
+blob-report/
+
+# Log output — keep folder structure, ignore content
+logs/**/*.log
+logs/**/*.gz
+logs/**/*.json
+!logs/**/.gitkeep
+
+# Generated knowledge graph
+graphify-out/
+
+# Local agent memory
+.claude/

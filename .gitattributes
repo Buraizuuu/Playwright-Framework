@@ -1,0 +1,14 @@
+# Normalize all text files to LF on commit, checkout as-is on Windows
+* text=auto eol=lf
+
+# Force LF for these regardless of OS
+*.ts    text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.svg   text eol=lf
+*.env*  text eol=lf
+
+# Binary — never touch line endings
+*.png   binary
+*.zip   binary
+*.gz    binary
