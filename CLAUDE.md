@@ -58,19 +58,6 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 ---
 
-## Credits
-
-The principles in this file — think before coding, simplicity first, surgical changes, goal-driven execution — are influenced by **Andrej Karpathy** and his philosophy on how humans and AI should collaborate on software.
-
-> *"The hottest new programming language is English."*
-> — Andrej Karpathy
-
-- [X / Twitter](https://x.com/karpathy)
-- [GitHub](https://github.com/karpathy)
-- [YouTube](https://www.youtube.com/@AndrejKarpathy)
-
----
-
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.

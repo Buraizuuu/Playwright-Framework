@@ -1,0 +1,282 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <!-- Background gradient — deep navy -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1280" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#0a0e1a"/>
+      <stop offset="50%"  stop-color="#0f1623"/>
+      <stop offset="100%" stop-color="#131d2e"/>
+    </linearGradient>
+
+    <!-- Top / bottom accent bar -->
+    <linearGradient id="greenGrad" x1="0" y1="0" x2="1280" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#2ea043"/>
+      <stop offset="50%"  stop-color="#45ba4b"/>
+      <stop offset="100%" stop-color="#2ea043"/>
+    </linearGradient>
+
+    <!-- Subtle grid -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e2d40" stroke-width="0.5"/>
+    </pattern>
+
+    <!-- Soft glow for key labels -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Arrow markers — orient="auto" rotates with path direction -->
+    <marker id="ag" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#45ba4b" opacity="0.8"/>
+    </marker>
+    <marker id="ab" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#388bfd" opacity="0.8"/>
+    </marker>
+    <marker id="ao" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#f97316" opacity="0.75"/>
+    </marker>
+    <marker id="aw" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#45ba4b" opacity="0.45"/>
+    </marker>
+  </defs>
+
+  <!-- ── Background ───────────────────────────────────────────────── -->
+  <rect width="1280" height="800" fill="url(#bgGrad)"/>
+  <rect width="1280" height="800" fill="url(#grid)" opacity="0.5"/>
+
+  <!-- Depth glow orbs -->
+  <ellipse cx="310"  cy="435" rx="230" ry="160" fill="#45ba4b" opacity="0.04"/>
+  <ellipse cx="970"  cy="435" rx="230" ry="160" fill="#388bfd" opacity="0.04"/>
+  <ellipse cx="640"  cy="100" rx="300" ry="80"  fill="#45ba4b" opacity="0.03"/>
+  <ellipse cx="640"  cy="660" rx="520" ry="80"  fill="#f97316" opacity="0.025"/>
+
+  <!-- Accent bars -->
+  <rect x="0" y="0"   width="1280" height="3" fill="url(#greenGrad)"/>
+  <rect x="0" y="797" width="1280" height="3" fill="url(#greenGrad)"/>
+
+  <!-- ── Lane panels (fork section) ───────────────────────────────── -->
+  <!-- UI lane -->
+  <rect x="148" y="344" width="324" height="160" rx="10"
+        fill="#45ba4b" fill-opacity="0.025"
+        stroke="#45ba4b" stroke-opacity="0.10" stroke-width="1"/>
+  <text x="310" y="362"
+        font-family="'Courier New', Courier, monospace" font-size="9"
+        fill="#45ba4b" fill-opacity="0.45" text-anchor="middle" letter-spacing="3">UI PATH</text>
+
+  <!-- API lane -->
+  <rect x="808" y="344" width="324" height="160" rx="10"
+        fill="#388bfd" fill-opacity="0.025"
+        stroke="#388bfd" stroke-opacity="0.10" stroke-width="1"/>
+  <text x="970" y="362"
+        font-family="'Courier New', Courier, monospace" font-size="9"
+        fill="#388bfd" fill-opacity="0.45" text-anchor="middle" letter-spacing="3">API PATH</text>
+
+  <!-- ── Arrows ────────────────────────────────────────────────────── -->
+
+  <!-- ① CLI → Global Setup -->
+  <line x1="640" y1="104" x2="640" y2="151"
+        stroke="#45ba4b" stroke-opacity="0.55" stroke-width="1.5" marker-end="url(#ag)"/>
+
+  <!-- ② Global Setup → Fixtures -->
+  <line x1="640" y1="199" x2="640" y2="247"
+        stroke="#45ba4b" stroke-opacity="0.55" stroke-width="1.5" marker-end="url(#ag)"/>
+
+  <!-- ③ Fixtures → fork bus -->
+  <line x1="640" y1="296" x2="640" y2="316"
+        stroke="#45ba4b" stroke-opacity="0.4" stroke-width="1.5"/>
+
+  <!-- Fork → UI Tests -->
+  <polyline points="640,316 310,316 310,356"
+            stroke="#45ba4b" stroke-opacity="0.5" stroke-width="1.5" fill="none" marker-end="url(#ag)"/>
+
+  <!-- Fork → API Tests -->
+  <polyline points="640,316 970,316 970,356"
+            stroke="#388bfd" stroke-opacity="0.5" stroke-width="1.5" fill="none" marker-end="url(#ab)"/>
+
+  <!-- Fork junction dot -->
+  <circle cx="640" cy="316" r="4" fill="#0f1623"/>
+  <circle cx="640" cy="316" r="2.5" fill="#45ba4b" opacity="0.7"/>
+
+  <!-- ④ UI Tests → Page Objects -->
+  <line x1="310" y1="404" x2="310" y2="451"
+        stroke="#45ba4b" stroke-opacity="0.55" stroke-width="1.5" marker-end="url(#ag)"/>
+
+  <!-- ⑤ API Tests → ApiClient -->
+  <line x1="970" y1="404" x2="970" y2="451"
+        stroke="#388bfd" stroke-opacity="0.55" stroke-width="1.5" marker-end="url(#ab)"/>
+
+  <!-- ⑥ Page Objects → Assertions (merge elbow) -->
+  <polyline points="310,500 310,568 509,568"
+            stroke="#45ba4b" stroke-opacity="0.4" stroke-width="1.5" fill="none" marker-end="url(#ag)"/>
+
+  <!-- ⑦ ApiClient → Assertions (merge elbow) -->
+  <polyline points="970,500 970,568 771,568"
+            stroke="#388bfd" stroke-opacity="0.4" stroke-width="1.5" fill="none" marker-end="url(#ab)"/>
+
+  <!-- Merge elbow dots -->
+  <circle cx="310" cy="568" r="3" fill="#45ba4b" opacity="0.5"/>
+  <circle cx="970" cy="568" r="3" fill="#388bfd" opacity="0.5"/>
+
+  <!-- ⑧ Assertions → output bus -->
+  <line x1="640" y1="592" x2="640" y2="614"
+        stroke="#f97316" stroke-opacity="0.5" stroke-width="1.5"/>
+
+  <!-- Output bus horizontal -->
+  <line x1="240" y1="614" x2="1040" y2="614"
+        stroke="#f97316" stroke-opacity="0.2" stroke-width="1"/>
+
+  <!-- Output bus → Artifacts -->
+  <line x1="240" y1="614" x2="240" y2="641"
+        stroke="#f97316" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#ao)"/>
+
+  <!-- Output bus → Winston Logs -->
+  <line x1="640" y1="614" x2="640" y2="641"
+        stroke="#f97316" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#ao)"/>
+
+  <!-- Output bus → HTML Report -->
+  <line x1="1040" y1="614" x2="1040" y2="641"
+        stroke="#f97316" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#ao)"/>
+
+  <!-- ⑨ Row-7 → teardown bus verticals -->
+  <line x1="240"  y1="689" x2="240"  y2="710"
+        stroke="#4a6080" stroke-opacity="0.35" stroke-width="1.5"/>
+  <line x1="640"  y1="689" x2="640"  y2="710"
+        stroke="#4a6080" stroke-opacity="0.35" stroke-width="1.5"/>
+  <line x1="1040" y1="689" x2="1040" y2="710"
+        stroke="#4a6080" stroke-opacity="0.35" stroke-width="1.5"/>
+
+  <!-- Teardown bus horizontal -->
+  <line x1="240" y1="710" x2="1040" y2="710"
+        stroke="#4a6080" stroke-opacity="0.2" stroke-width="1"/>
+
+  <!-- Teardown bus → Global Teardown -->
+  <line x1="640" y1="710" x2="640" y2="731"
+        stroke="#45ba4b" stroke-opacity="0.4" stroke-width="1.5" marker-end="url(#aw)"/>
+
+  <!-- ── Boxes ──────────────────────────────────────────────────────── -->
+
+  <!-- ① npm test / Playwright CLI -->
+  <rect x="520" y="56" width="240" height="48" rx="8"
+        fill="#45ba4b" fill-opacity="0.09" stroke="#45ba4b" stroke-opacity="0.6" stroke-width="1"/>
+  <text x="640" y="77"
+        font-family="'Courier New', Courier, monospace" font-size="14" font-weight="700"
+        fill="#45ba4b" text-anchor="middle" letter-spacing="1" filter="url(#glow)">npm test</text>
+  <text x="640" y="95"
+        font-family="'Courier New', Courier, monospace" font-size="10"
+        fill="#4a6080" text-anchor="middle" letter-spacing="1">Playwright CLI</text>
+
+  <!-- ② Global Setup -->
+  <rect x="490" y="151" width="300" height="48" rx="8"
+        fill="#45ba4b" fill-opacity="0.07" stroke="#45ba4b" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="640" y="172"
+        font-family="'Courier New', Courier, monospace" font-size="13" font-weight="700"
+        fill="#45ba4b" text-anchor="middle" letter-spacing="1">Global Setup</text>
+  <text x="640" y="190"
+        font-family="'Courier New', Courier, monospace" font-size="10"
+        fill="#4a6080" text-anchor="middle" letter-spacing="1">env validation · suite log start</text>
+
+  <!-- ③ Fixtures -->
+  <rect x="470" y="248" width="340" height="48" rx="8"
+        fill="#45ba4b" fill-opacity="0.07" stroke="#45ba4b" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="640" y="269"
+        font-family="'Courier New', Courier, monospace" font-size="13" font-weight="700"
+        fill="#45ba4b" text-anchor="middle" letter-spacing="1">Fixtures</text>
+  <text x="640" y="287"
+        font-family="'Courier New', Courier, monospace" font-size="10"
+        fill="#4a6080" text-anchor="middle" letter-spacing="1">loginPage · dashboardPage · apiClient · testLogger</text>
+
+  <!-- ④ UI Tests -->
+  <rect x="195" y="356" width="230" height="48" rx="8"
+        fill="#45ba4b" fill-opacity="0.08" stroke="#45ba4b" stroke-opacity="0.45" stroke-width="1"/>
+  <text x="310" y="377"
+        font-family="'Courier New', Courier, monospace" font-size="13" font-weight="700"
+        fill="#45ba4b" text-anchor="middle" letter-spacing="1">UI Tests</text>
+  <text x="310" y="395"
+        font-family="'Courier New', Courier, monospace" font-size="10"
+        fill="#4a6080" text-anchor="middle" letter-spacing="1">smoke · regression</text>
+
+  <!-- ⑤ API Tests -->
+  <rect x="855" y="356" width="230" height="48" rx="8"
+        fill="#1f6feb" fill-opacity="0.08" stroke="#388bfd" stroke-opacity="0.45" stroke-width="1"/>
+  <text x="970" y="377"
+        font-family="'Courier New', Courier, monospace" font-size="13" font-weight="700"
+        fill="#388bfd" text-anchor="middle" letter-spacing="1">API Tests</text>
+  <text x="970" y="395"
+        font-family="'Courier New', Courier, monospace" font-size="10"
+        fill="#4a6080" text-anchor="middle" letter-spacing="1">smoke · regression</text>
+
+  <!-- ⑥ Page Objects -->
+  <rect x="195" y="452" width="230" height="48" rx="8"
+        fill="#45ba4b" fill-opacity="0.06" stroke="#45ba4b" stroke-opacity="0.35" stroke-width="1"/>
+  <text x="310" y="473"
+        font-family="'Courier New', Courier, monospace" font-size="13" font-weight="700"
+        fill="#45ba4b" text-anchor="middle" letter-spacing="1">Page Objects</text>
+  <text x="310" y="491"
+        font-family="'Courier New', Courier, monospace" font-size="10"
+        fill="#4a6080" text-anchor="middle" letter-spacing="1">Chromium → OrangeHRM</text>
+
+  <!-- ⑦ ApiClient -->
+  <rect x="855" y="452" width="230" height="48" rx="8"
+        fill="#1f6feb" fill-opacity="0.06" stroke="#388bfd" stroke-opacity="0.35" stroke-width="1"/>
+  <text x="970" y="473"
+        font-family="'Courier New', Courier, monospace" font-size="13" font-weight="700"
+        fill="#388bfd" text-anchor="middle" letter-spacing="1">ApiClient</text>
+  <text x="970" y="491"
+        font-family="'Courier New', Courier, monospace" font-size="10"
+        fill="#4a6080" text-anchor="middle" letter-spacing="1">HTTP → Fake Store API</text>
+
+  <!-- ⑧ Playwright Assertions -->
+  <rect x="510" y="544" width="260" height="48" rx="8"
+        fill="#f97316" fill-opacity="0.08" stroke="#f97316" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="640" y="565"
+        font-family="'Courier New', Courier, monospace" font-size="13" font-weight="700"
+        fill="#f97316" text-anchor="middle" letter-spacing="1">Playwright Assertions</text>
+  <text x="640" y="583"
+        font-family="'Courier New', Courier, monospace" font-size="10"
+        fill="#4a6080" text-anchor="middle" letter-spacing="1">expect · pass / fail</text>
+
+  <!-- ⑨ Artifacts -->
+  <rect x="130" y="641" width="220" height="48" rx="8"
+        fill="#f97316" fill-opacity="0.06" stroke="#f97316" stroke-opacity="0.35" stroke-width="1"/>
+  <text x="240" y="662"
+        font-family="'Courier New', Courier, monospace" font-size="12" font-weight="700"
+        fill="#f97316" text-anchor="middle" letter-spacing="1">Artifacts</text>
+  <text x="240" y="679"
+        font-family="'Courier New', Courier, monospace" font-size="10"
+        fill="#4a6080" text-anchor="middle" letter-spacing="1">screenshot · trace · video</text>
+
+  <!-- ⑩ Winston Logs -->
+  <rect x="530" y="641" width="220" height="48" rx="8"
+        fill="#f97316" fill-opacity="0.06" stroke="#f97316" stroke-opacity="0.35" stroke-width="1"/>
+  <text x="640" y="662"
+        font-family="'Courier New', Courier, monospace" font-size="12" font-weight="700"
+        fill="#f97316" text-anchor="middle" letter-spacing="1">Winston Logs</text>
+  <text x="640" y="679"
+        font-family="'Courier New', Courier, monospace" font-size="10"
+        fill="#4a6080" text-anchor="middle" letter-spacing="1">execution · errors · audit</text>
+
+  <!-- ⑪ HTML Report -->
+  <rect x="930" y="641" width="220" height="48" rx="8"
+        fill="#f97316" fill-opacity="0.06" stroke="#f97316" stroke-opacity="0.35" stroke-width="1"/>
+  <text x="1040" y="662"
+        font-family="'Courier New', Courier, monospace" font-size="12" font-weight="700"
+        fill="#f97316" text-anchor="middle" letter-spacing="1">HTML Report</text>
+  <text x="1040" y="679"
+        font-family="'Courier New', Courier, monospace" font-size="10"
+        fill="#4a6080" text-anchor="middle" letter-spacing="1">npm run report</text>
+
+  <!-- ⑫ Global Teardown -->
+  <rect x="520" y="731" width="240" height="48" rx="8"
+        fill="#45ba4b" fill-opacity="0.05" stroke="#45ba4b" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="640" y="752"
+        font-family="'Courier New', Courier, monospace" font-size="13" font-weight="700"
+        fill="#45ba4b" fill-opacity="0.55" text-anchor="middle" letter-spacing="1">Global Teardown</text>
+  <text x="640" y="770"
+        font-family="'Courier New', Courier, monospace" font-size="10"
+        fill="#4a6080" text-anchor="middle" letter-spacing="1">suite end log</text>
+
+</svg>

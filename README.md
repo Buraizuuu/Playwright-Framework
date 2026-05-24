@@ -24,7 +24,13 @@
 
 ## Overview
 
-A production-ready Playwright automation framework built with TypeScript. Covers both **UI testing** (OrangeHRM demo) and **API testing** ([Fake Store API](https://fakestoreapi.com)) using the Page Object Model pattern, centralised environment config, and structured Winston logging.
+A production-ready Playwright automation framework built with TypeScript. Covers both **UI testing** ([OrangeHRM demo](https://opensource-demo.orangehrmlive.com)) and **API testing** ([Fake Store API](https://fakestoreapi.com)) using the Page Object Model pattern, centralised environment config, and structured Winston logging.
+
+---
+
+## Framework Flow
+
+<img src="assets/flow.svg" alt="Framework Execution Flow" width="100%"/>
 
 ---
 
@@ -338,6 +344,34 @@ All artifact folders are git-ignored. Run `npm run report` to open the HTML repo
 |---|---|---|
 | UI | OrangeHRM Open Source Demo | https://opensource-demo.orangehrmlive.com |
 | API | Fake Store API | https://fakestoreapi.com |
+
+---
+
+## AI Development Guidelines
+
+This project ships a [`CLAUDE.md`](CLAUDE.md) — a plain-text contract that tells Claude (AI) exactly how to behave when helping with this codebase. Every time Claude is invoked it reads this file first, so the rules apply automatically to every suggestion, edit, and code generation in this repo.
+
+### The four principles
+
+| # | Principle | Rule |
+|---|---|---|
+| 1 | **Think Before Coding** | State assumptions explicitly. Surface tradeoffs. Ask when something is unclear — don't guess silently. |
+| 2 | **Simplicity First** | Write the minimum code that solves the problem. No speculative features, no abstractions for single-use code. |
+| 3 | **Surgical Changes** | Touch only what the task requires. Match existing style. Don't refactor adjacent code that isn't broken. |
+| 4 | **Goal-Driven Execution** | Turn every task into a verifiable goal. Define what "done" looks like before writing a single line. |
+
+---
+
+## Credits
+
+The principles in [`CLAUDE.md`](CLAUDE.md) — think before coding, simplicity first, surgical changes, goal-driven execution — are influenced by **Andrej Karpathy** and his philosophy on how humans and AI should collaborate on software.
+
+> *"The hottest new programming language is English."*
+> — Andrej Karpathy
+
+- [X / Twitter](https://x.com/karpathy)
+- [GitHub](https://github.com/karpathy)
+- [YouTube](https://www.youtube.com/@AndrejKarpathy)
 
 ---
 
