@@ -56,7 +56,7 @@ export class LoginPage extends BasePage {
 
   /** Asserts the browser is still on the login page (failed login check). */
   async verifyLoginPageDisplayed(): Promise<void> {
-    await expect(this.page).toHaveURL(/auth\/test/);
+    await expect(this.page).toHaveURL(/auth\/login/);
   }
 
   /** Asserts the alert banner contains the expected error text. */
