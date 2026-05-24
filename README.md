@@ -343,6 +343,6 @@ All artifact folders are git-ignored. Run `npm run report` to open the HTML repo
 
 <div align="center">
 
-Built with [Playwright](https://playwright.dev) · [TypeScript](https://typescriptlang.org) · [Winston](https://github.com/winstonjs/winston)
+Built with [Playwright](https://playwright.dev) · [TypeScript](https://typescriptlang.org) · [Winston](https://github.com/winstonjs/winston) · [Faker.js](https://fakerjs.dev)
 
 </div>
