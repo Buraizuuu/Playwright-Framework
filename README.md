@@ -11,7 +11,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-20+-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
 [![License](https://img.shields.io/badge/License-ISC-lightgrey?style=for-the-badge)](LICENSE)
 
-[![Architecture](https://img.shields.io/badge/Architecture-Page%20Object%20Model-f97316?style=flat-square)](https://playwright.dev/docs/pom)
+[![Architecture](https://img.shields.io/badge/Architecture-Hybrid%20%7C%20Page%20Object%20Model-f97316?style=flat-square)](https://playwright.dev/docs/pom)
 [![Config](https://img.shields.io/badge/Config-dotenv-ecd53f?style=flat-square&logo=dotenv&logoColor=black)](https://github.com/motdotla/dotenv)
 [![Logging](https://img.shields.io/badge/Logging-Winston-231f20?style=flat-square)](https://github.com/winstonjs/winston)
 [![Platform](https://img.shields.io/badge/Platform-Windows-0078d4?style=flat-square&logo=windows&logoColor=white)](https://www.microsoft.com/windows)
@@ -24,7 +24,12 @@
 
 ## Overview
 
-A production-ready Playwright automation framework built with TypeScript. Covers both **UI testing** ([OrangeHRM demo](https://opensource-demo.orangehrmlive.com)) and **API testing** ([Fake Store API](https://fakestoreapi.com)) using the Page Object Model pattern, centralised environment config, and structured Winston logging.
+A production-ready **hybrid** Playwright automation framework built with TypeScript. "Hybrid" means UI and API tests live in the same project and share the same fixture layer, config, and logger — there is no separate tool or runner for each layer.
+
+- **UI testing** → [OrangeHRM demo](https://opensource-demo.orangehrmlive.com) via Page Object Model
+- **API testing** → [Fake Store API](https://fakestoreapi.com) via a typed `ApiClient` fixture
+
+Both test types are wired into `fixtures/index.ts` and driven by a single `playwright.config.ts`.
 
 ---
 
