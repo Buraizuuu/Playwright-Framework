@@ -7,7 +7,7 @@
 <br /><br />
 
 [![Playwright](https://img.shields.io/badge/Playwright-v1.60-45ba4b?style=for-the-badge&logo=playwright&logoColor=white)](https://playwright.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-v5.x-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-v5.9-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Node.js](https://img.shields.io/badge/Node.js-20+-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
 [![License](https://img.shields.io/badge/License-ISC-lightgrey?style=for-the-badge)](LICENSE)
 
@@ -37,7 +37,7 @@ A production-ready Playwright automation framework built with TypeScript. Covers
 | Architecture | Page Object Model | Separation of locators, actions, and tests |
 | Config | [dotenv](https://github.com/motdotla/dotenv) | Environment-specific variables via `.env.qa` |
 | Logging | [Winston](https://github.com/winstonjs/winston) | Structured, rotating log files |
-| Test data | [@faker-js/faker](https://fakerjs.dev) | Dynamic payload generation for API tests |
+| Test data | [@faker-js/faker](https://fakerjs.dev) v9.9 | Dynamic payload generation for API tests |
 | Browser | Chromium (Desktop Chrome) | Default project; easily extended |
 
 ---
@@ -155,6 +155,8 @@ API_BASE_URL=https://fakestoreapi.com
 
 ## Running Tests
 
+> **Execution model:** Tests run sequentially (`workers: 1`, `fullyParallel: false`). This keeps log output ordered and avoids shared-state races on the demo site.
+
 ```bash
 # Run all tests
 npm test
@@ -183,6 +185,35 @@ npm run typecheck
 # Open the HTML report
 npm run report
 ```
+
+### Running a Specific Test
+
+```bash
+# By full file path
+npx playwright test tests/api/smoke/TC001-get-products.spec.ts
+
+# By filename fragment (no path needed)
+npx playwright test TC001-get-products
+
+# By test title (supports regex)
+npx playwright test TC001-get-products --grep "should return a list"
+
+# Headed so you can watch it
+npx playwright test TC001-get-products --headed
+
+# Step through with the debugger
+npx playwright test TC001-get-products --debug
+
+# Pick and re-run tests interactively
+npx playwright test --ui
+```
+
+### CI behaviour
+
+When the `CI` environment variable is set, the runner automatically:
+
+- **Retries** each failing test up to **2 times** before marking it failed
+- **Fails fast** if any `test.only` call is left in the codebase (`forbidOnly`)
 
 ---
 
